@@ -462,7 +462,7 @@ canvas {
 }
 
 .section-title {
-  font-size: 100px;
+  font-size: 50px;
   position: absolute;
   bottom: 50px;
   left: 50px;
@@ -507,6 +507,9 @@ canvas {
       max-width: 75%;
       &:hover span {
         border-bottom: 1px dotted $green;
+      }
+      a {
+          color: lighten($black, 63%);
       }
     }
   }
@@ -593,7 +596,7 @@ canvas {
     position: relative;
     left: auto;
     bottom: auto;
-    font-size: 80px;
+    font-size: 50px;
   }
   .tags > li {
     background: none;
@@ -774,7 +777,7 @@ canvas {
     }
   }
   .section-title {
-    font-size: 80px;
+    font-size: 50px;
   }
   .projects-menu li {
     width: 100% !important;
