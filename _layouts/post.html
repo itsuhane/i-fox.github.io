@@ -13,6 +13,7 @@ layout: compress
         <div class="post-title-section">
           <div class="section-line">Posts <em>/</em></div>
           <h1 class="section-title">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
+          {% comment %}
           <ul class="tags">
             {% for tag in page.tags %}
               <li><a href="{{ site.url }}/tags#{{ tag }}">{{ tag }}</a></li>
@@ -20,7 +21,8 @@ layout: compress
               {% endunless %}
             {% endfor %}
           </ul>
-          <div class="section-line reverse"><a href="{{ site.url }}/posts">Back to posts</a> <em>/</em></div>
+          {% endcomment %}
+          <div class="section-line reverse"><a href="{{ site.url }}/">Back to home</a> <em>/</em></div>
         </div>
       </div>
     </div>
@@ -29,10 +31,10 @@ layout: compress
       <!--<div class="share-buttons">
         {% include share.html %}
       </div>-->
-      <a href="{{ site.url }}/posts" title="posts" class="posts-menu-icon"></a>
+      <!-- <a href="{{ site.url }}/posts" title="posts" class="posts-menu-icon"></a>
       <a title="projects" class="projects-menu-icon">
         <span></span>
-      </a>
+      </a> -->
       <div class="inner-post content">
         <div class="date-highlight">{% if page.date %}{{ page.date | date: '%d %b %Y' }}{% else %}&#x2756;{% endif %}</div>
         {{ content }}
