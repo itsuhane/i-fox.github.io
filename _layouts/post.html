@@ -1,49 +1,51 @@
 ---
-layout: compress
+layout: default
 ---
-
-<!DOCTYPE html>
-<html>
-{% include head.html %}
-<body id="posts" class="inner-post-page">
-
-    <div class="block-left">
-      <div class="content">
-        <a href="{{ site.url }}" class="logo"><img src="{{ site.url }}/images/{{ site.logo }}"></a>
-        <div class="post-title-section">
-          <div class="section-line">Posts <em>/</em></div>
-          <h1 class="section-title">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
-          {% comment %}
-          <ul class="tags">
-            {% for tag in page.tags %}
-              <li><a href="{{ site.url }}/tags#{{ tag }}">{{ tag }}</a></li>
-              {% unless forloop.last %}
-              {% endunless %}
-            {% endfor %}
-          </ul>
-          {% endcomment %}
-          <div class="section-line reverse"><a href="{{ site.url }}/">Back to home</a> <em>/</em></div>
+<main class="post_content">
+  <article class="post">
+    <header>
+      <div class="post_image">
+        <img src="{{ site.assets.images | prepend: site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">
+      </div>
+      <div class="post_description">
+        <p class="post_meta">{{ page.date | date: '%Y, %b %d' }}</p>
+        <h1 class="post_title">{{ page.title }}</h1>
+      </div>
+    </header> <!-- End Header -->
+    <div class="entry_content">
+    {{ page.content | markdownify }}
+    </div>
+    <div class="post_wrapper">
+      <footer class="post_footer cf">
+        <div class="post_share">
+          <span>Share:</span>
+          <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.baseurl | prepend: site.url }}" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/sharer.php?u={{ page.url | prepend: site.baseurl | prepend: site.url }}" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/share?url={{ page.url | prepend: site.baseurl | prepend: site.url }}" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
         </div>
+        <div class="post_tag">
+          <span>Tags:</span>
+          {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags#{{tag}}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </footer>
+    </div>
+  </article> <!-- End Section Post -->
+  <section class="recent_box">
+    <div class="post_wrapper">
+      <h2 class="recent_title">Recent post</h2>
+      <div class="recent_list">
+        {% for post in site.posts offset:0 limit:6 %}
+          {% if post.title %}
+            <a href="{{ post.url | prepend: site.baseurl }}"
+              class="recent_item"
+              style="background-image: url('{{ site.assets.images | prepend: site.baseurl }}/{{ post.image }}')">
+                <span>{{ post.title }}</span>
+            </a>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
-
-    <div class="block-right">
-      <!--<div class="share-buttons">
-        {% include share.html %}
-      </div>-->
-      <!-- <a href="{{ site.url }}/posts" title="posts" class="posts-menu-icon"></a>
-      <a title="projects" class="projects-menu-icon">
-        <span></span>
-      </a> -->
-      <div class="inner-post content">
-        <div class="date-highlight">{% if page.date %}{{ page.date | date: '%d %b %Y' }}{% else %}&#x2756;{% endif %}</div>
-        {{ content }}
-        <br>
-        {% include share.html %}
-        {% include page-pagination.html %}
-      </div>
-    </div>
-    {% include scripts.html %}
-    {% include overlay.html %}
-</body>
-</html>
+  </section> <!-- End Section Recent Box -->
+</main> <!-- End Section Post Content -->

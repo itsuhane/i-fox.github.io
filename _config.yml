@@ -1,65 +1,34 @@
-# Site
-title: '子狐飼育日記'
-description: '_:(′&#3904`」 ∠):_'
-url: https://i-fox.club
-logo: logo.png                                       # Site logo
-locale: en_US
+title: 子狐飼育日記
+description: > # this means to ignore newlines until "baseurl:"
+  A quick brown fox jumps over the lazy dog.
+# permalink: ':title/'
 
-# Left Block Images
-background:
-  homepage: images/home.png                           # this image will be shown on homepage's left block
-  post-list: images/unsplash-image-10.jpg             # this image will be shown on post list page
-  default-post: images/unsplash-gallery-image-3.jpg   # this image will be shown when post's front matter doesn't specify any image
+banner:
+  video: mountains.mp4 # add banner video. Add your video file to the folder video
+  title: # add banner title
+  description: # add banner description
 
-# Jekyll
-permalink:          /:title/
-markdown:           kramdown
-highlighter:        rouge
-kramdown:
-  auto_ids:         true
-  footnote_nr:      1
-  entity_output:    as_char
-  toc_levels:       1..6
-  enable_coderay:   false
-sass:
-  sass_dir:         assets/_sass
-  style:            compressed
+social:
+  twitter: iFox1002
 
-# Google Analytics
-#google-analytics: UA-XXXXX-Y
+paginate: 6
+paginate_path: /page-:num/
 
-# Social Links
-#email:             email
-#google.plus:       username
-twitter:            iFox1002
-#facebook:          username
-#gh:                username
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin:          username
-#xing:              username
-#instagram:         username
-#lastfm:            username
-#tumblr:            username
-#pinterest:         username
-#foursquare:        username
-#steam:             username
-#dribbble:          username
-#youtube:           username
-#soundcloud:        username
-#weibo:             username
-#flickr:            username
-#codepen:           username
-#keybase:           username
-#xmpp:              username@server.com
-#hackernews:        username
-#behance:           username
+url: "https://jinyu.li" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/i-fox.github.io" # the subpath of your site, e.g. /blog
 
-# Gems
+assets:
+  styles:  /assets/styles
+  fonts:   /assets/fonts
+  images:  /assets/images
+  videos:  /assets/videos
+  scripts: /assets/scripts
+
+markdown: kramdown
+
 gems:
-  - jekyll-feed
+  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
 
-# Exclude list
-include: [_pages]
-exclude: [README.md, Gemfile, Gemfile.lock, _site, src, vendor, CNAME, LICENSE, Rakefile, .sass-cache, .DS_Store]
+include: [ _pages ]
+exclude: [ CNAME, LICENSE, gulpfile.js, package.json, yarn.lock ]
